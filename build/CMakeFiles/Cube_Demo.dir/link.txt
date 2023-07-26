@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/Cube_Demo.dir/src/Main.cpp.o CMakeFiles/Cube_Demo.dir/src/Application.cpp.o CMakeFiles/Cube_Demo.dir/src/Canvas.cpp.o CMakeFiles/Cube_Demo.dir/src/Polygon.cpp.o -o Cube_Demo  /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1 
