@@ -39,7 +39,6 @@ Polygon::Polygon(sf::Vector2f first, sf::Vector2f second, sf::Vector2f third, sf
 Polygon::~Polygon()
 {
     vertices.clear();
-    // outlines.clear();
 }
 
 void Polygon::render(sf::RenderTarget* target)
