@@ -39,6 +39,7 @@ private:
     // Objects
     sf::RenderWindow* window;
     sf::Event w_event;
+    sf::VideoMode vid_mode;
     // sf::Time delta_time;
     Canvas* canvas;
 };
