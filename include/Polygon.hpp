@@ -27,7 +27,6 @@ private:
     // Functions
 
     // Memory
-    // void free(sf::Vector2f* vec);
 
     // Objects
     sf::VertexArray vertices;
