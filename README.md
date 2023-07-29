@@ -1,5 +1,10 @@
 # Cube Demo
 
+WHAT IS THIS?
+----
+
+This project is only intended to be a demonstration on how to draw faux 3D style graphics using SFML's built in rendering. Because the images drawn on the screen have no true depth (no Z axis) they do not count as what typically counts as 3D.
+
 BRANCHES
 ----
 
