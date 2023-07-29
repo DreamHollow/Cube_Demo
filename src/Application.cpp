@@ -9,8 +9,6 @@ Application::Application(sf::Vector2i size, unsigned int bits)
 {
     init_vars();
 
-    sf::VideoMode vid_mode;
-
     vid_mode.width = size.x;
     vid_mode.height = size.y;
     vid_mode.bitsPerPixel = bits;
