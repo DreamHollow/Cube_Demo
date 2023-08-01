@@ -43,6 +43,11 @@ Polygon::~Polygon()
     vertices.clear();
     // Vertices do not need to shrink, handled by SFML
     // 'outlines' does not need to be deleted, it is non-heap
+
+    if(debug)
+    {
+        std::cout << db_string << "A polygon went out of scope.\n";
+    }
 }
 
 void Polygon::render(sf::RenderTarget* target)
