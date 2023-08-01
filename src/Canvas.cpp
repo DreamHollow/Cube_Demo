@@ -108,6 +108,10 @@ void Canvas::free(Polygon *poly)
     {
         delete poly;
     }
+    else
+    {
+        std::cout << db_string << "Polygon data not found, skipping...\n";
+    }
 }
 
 void Canvas::free_data()
