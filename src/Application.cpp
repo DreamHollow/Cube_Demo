@@ -20,8 +20,7 @@ Application::Application(sf::Vector2i size, unsigned int bits)
             std::cout << "ERROR: Invalid window arguments. ";
             std::cout << "Window object could not be created.\n";
 
-            free(window);
-            free(canvas);
+            free_data();
 
             throw "Invalid window settings!";
         }
@@ -45,8 +44,7 @@ Application::Application(sf::Vector2i size, unsigned int bits)
 
 Application::~Application()
 {
-    free(window);
-    free(canvas);
+    free_data();
 
     if(debug)
     {
@@ -109,6 +107,13 @@ void Application::run()
         }
         render();
     }
+}
+
+/// @brief Calls functions that check and delete heap memory.
+void Application::free_data()
+{
+    free(window);
+    free(canvas);
 }
 
 /// @brief Function deletes a memory object, if it exists.
