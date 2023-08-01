@@ -28,42 +28,54 @@ void Canvas::init_objects()
     sf::Vector2f two{500.f, 200.f};
     sf::Vector2f three{500.f, 400.f};
 
-    Polygon first_poly(one,two,three,sf::Color::Blue); // Top half of front face
+    first_poly = new Polygon(one,two,three,sf::Color::Blue);
+
+    //Polygon first_poly(one,two,three,sf::Color::Blue); // Top half of front face
     polygons.push_back(first_poly);
 
     one = sf::Vector2f(500.f, 400.f);
     two = sf::Vector2f(300.f, 200.f);
     three = sf::Vector2f(300.f, 400.f);
 
-    Polygon second_poly(one,two, three,sf::Color::Blue); // Bottom half of front face
+    second_poly = new Polygon(one,two,three,sf::Color::Blue);
+
+    //Polygon second_poly(one,two, three,sf::Color::Blue); // Bottom half of front face
     polygons.push_back(second_poly);
 
     one = sf::Vector2f(300.f, 200.f);
     two = sf::Vector2f(400.f, 100.f);
     three = sf::Vector2f(600.f, 100.f);
 
-    Polygon third_poly(one,two,three,sf::Color::Red); // Top half of top face
+    third_poly = new Polygon(one,two,three,sf::Color::Red);
+
+    //Polygon third_poly(one,two,three,sf::Color::Red); // Top half of top face
     polygons.push_back(third_poly);
 
     one = sf::Vector2f(300.f, 200.f);
     two = sf::Vector2f(500.f, 200.f);
     three = sf::Vector2f(600.f, 100.f);
 
-    Polygon fourth_poly(one,two,three,sf::Color::Red); // Bottom half of top face
+    fourth_poly = new Polygon(one,two,three,sf::Color::Red);
+
+    //Polygon fourth_poly(one,two,three,sf::Color::Red); // Bottom half of top face
     polygons.push_back(fourth_poly);
 
     one = sf::Vector2f(600.f, 100.f);
     two = sf::Vector2f(600.f, 300.f);
     three = sf::Vector2f(500.f, 200.f);
 
-    Polygon fifth_poly(one,two,three,sf::Color::Green); // Top half of side face
+    fifth_poly = new Polygon(one,two,three,sf::Color::Green);
+
+    //Polygon fifth_poly(one,two,three,sf::Color::Green); // Top half of side face
     polygons.push_back(fifth_poly);
 
     one = sf::Vector2f(500.f, 200.f);
     two = sf::Vector2f(500.f, 400.f);
-    three= sf::Vector2f(600.f, 300.f);
+    three = sf::Vector2f(600.f, 300.f);
 
-    Polygon sixth_poly(one,two,three,sf::Color::Green); // Bottom half of side face
+    sixth_poly = new Polygon(one,two,three,sf::Color::Green);
+
+    //Polygon sixth_poly(one,two,three,sf::Color::Green); // Bottom half of side face
     polygons.push_back(sixth_poly);
 }
 
@@ -74,7 +86,7 @@ void Canvas::render(sf::RenderTarget* target)
 
     for(auto it : polygons)
     {
-        it.render(target);
+        it->render(target);
     }
 }
 
@@ -86,7 +98,15 @@ void Canvas::update()
 
     for(auto it : polygons)
     {
-        it.update();
+        it->update();
+    }
+}
+
+void Canvas::free(Polygon *poly)
+{
+    if(poly)
+    {
+        delete poly;
     }
 }
 
@@ -98,5 +118,17 @@ void Canvas::free_data()
     if(debug)
     {
         std::cout << db_string << "Polygons vector cleared.\n";
+    }
+
+    free(first_poly);
+    free(second_poly);
+    free(third_poly);
+    free(fourth_poly);
+    free(fifth_poly);
+    free(sixth_poly);
+
+    if(debug)
+    {
+        std::cout << db_string << "Polygons in heap memory are released.\n";
     }
 }
