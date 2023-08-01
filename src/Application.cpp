@@ -117,6 +117,7 @@ void Application::free_data()
 }
 
 /// @brief Function deletes a memory object, if it exists.
+/// Not to be confused with C based 'free()' which serves a similar purpose.
 void Application::free(sf::RenderWindow* win)
 {
     if(win)
