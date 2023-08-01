@@ -32,7 +32,7 @@ private:
     void render();
 
     // Memory
-    // void free();
+    void free_data();
     void free(sf::RenderWindow* win);
     void free(Canvas* can);
 
