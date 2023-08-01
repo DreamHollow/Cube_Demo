@@ -108,7 +108,7 @@ void Canvas::free(Polygon *poly)
     {
         delete poly;
     }
-    else
+    else // You should never see this unless allocation has failed.
     {
         std::cout << db_string << "Polygon data not found, skipping...\n";
     }
