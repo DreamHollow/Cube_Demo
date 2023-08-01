@@ -27,11 +27,18 @@ private:
     void init_objects();
 
     // Memory
+    void free(Polygon *poly);
     void free_data();
 
     // Objects
     sf::RectangleShape background;
-    std::vector<Polygon> polygons;
+    Polygon *first_poly;
+    Polygon *second_poly;
+    Polygon *third_poly;
+    Polygon *fourth_poly;
+    Polygon *fifth_poly;
+    Polygon *sixth_poly;
+    std::vector<Polygon*> polygons;
 };
 
 #endif
