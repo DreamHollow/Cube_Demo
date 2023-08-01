@@ -27,7 +27,7 @@ private:
     void init_objects();
 
     // Memory
-    void free();
+    void free_data();
 
     // Objects
     sf::RectangleShape background;
