@@ -19,7 +19,7 @@ Canvas::Canvas(sf::Vector2f size)
 
 Canvas::~Canvas()
 {
-    free();
+    free_data();
 }
 
 void Canvas::init_objects()
@@ -90,7 +90,7 @@ void Canvas::update()
     }
 }
 
-void Canvas::free()
+void Canvas::free_data()
 {
     polygons.clear();
     polygons.shrink_to_fit();
