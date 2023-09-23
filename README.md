@@ -27,6 +27,9 @@ You will need SFML 2.5.1 or later for this program to work; though I cannot guar
 
 Because this program uses SFML's interface with a user's actual graphics card, it should work universally.
 
+This program also offers some loose insight into how SFML and OpenGL work,
+but to better understand those libraries it is best to study them seperately.
+
 DOCUMENTATION
 ----
 
