@@ -31,9 +31,9 @@ Application::Application(sf::Vector2i size, unsigned int bits)
                 static_cast<int>(sf::VideoMode::getDesktopMode().height / 4)
             };
 
-            window = new sf::RenderWindow(vid_mode, window_name, sf::Style::Close);
+            window = std::make_shared<sf::RenderWindow>(vid_mode, window_name, sf::Style::Close);
             window->setPosition(window_pos);
-            canvas = new Canvas(sf::Vector2f(vid_mode.width, vid_mode.height));
+            canvas = std::make_unique<Canvas>(sf::Vector2f(vid_mode.width, vid_mode.height));
         }
     }
     catch(const std::exception e)
@@ -112,38 +112,9 @@ void Application::run()
 /// @brief Calls functions that check and delete heap memory.
 void Application::free_data()
 {
-    free(window);
-    free(canvas);
-}
-
-/// @brief Function deletes a memory object, if it exists.
-/// Not to be confused with C based 'free()' which serves a similar purpose.
-void Application::free(sf::RenderWindow* win)
-{
-    if(win)
+    // Force all window pointers to be destroyed
+    while(window.use_count() > 0)
     {
-        delete win;
-    }
-    else
-    {
-        if(debug)
-        {
-            std::cout << db_string << "Could not free window object, not allocated.\n";
-        }
-    }
-}
-
-void Application::free(Canvas* can)
-{
-    if(can)
-    {
-        delete can;
-    }
-    else
-    {
-        if(debug)
-        {
-            std::cout << db_string << "Could not free canvas object, not allocated.\n";
-        }
+        window.reset();
     }
 }

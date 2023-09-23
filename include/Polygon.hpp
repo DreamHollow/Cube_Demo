@@ -2,6 +2,7 @@
 #define POLYGON_HPP
 #include <iostream>
 #include <vector>
+#include <memory>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
@@ -19,7 +20,7 @@ public:
     void update();
 
     // Render
-    void render(sf::RenderTarget* target);
+    void render(std::shared_ptr<sf::RenderTarget> target);
 
 private:
     // Variables

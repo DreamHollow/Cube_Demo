@@ -50,7 +50,7 @@ Polygon::~Polygon()
     }
 }
 
-void Polygon::render(sf::RenderTarget* target)
+void Polygon::render(std::shared_ptr<sf::RenderTarget> target)
 {
     target->draw(vertices);
     target->draw(outlines, 3, sf::Lines);

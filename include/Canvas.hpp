@@ -14,7 +14,7 @@ public:
     void update();
 
     // Render
-    void render(sf::RenderTarget* target);
+    void render(std::shared_ptr<sf::RenderTarget> target);
 
 private:
     // Variables
@@ -24,21 +24,16 @@ private:
     // Functions
 
     // Init
+    void create_polygon(sf::Vector2f One, sf::Vector2f Two, sf::Vector2f Three, sf::Color color);
     void init_objects();
 
     // Memory
-    void free(Polygon *poly);
+    //void free(Polygon *poly);
     void free_data();
 
     // Objects
     sf::RectangleShape background;
-    Polygon *first_poly;
-    Polygon *second_poly;
-    Polygon *third_poly;
-    Polygon *fourth_poly;
-    Polygon *fifth_poly;
-    Polygon *sixth_poly;
-    std::vector<Polygon*> polygons;
+    std::vector<std::shared_ptr<Polygon>> polygons;
 };
 
 #endif

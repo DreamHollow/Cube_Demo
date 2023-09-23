@@ -33,15 +33,13 @@ private:
 
     // Memory
     void free_data();
-    void free(sf::RenderWindow* win);
-    void free(Canvas* can);
 
     // Objects
-    sf::RenderWindow* window;
+    std::shared_ptr<sf::RenderWindow> window;
     sf::Event w_event;
     sf::VideoMode vid_mode;
     // sf::Time delta_time;
-    Canvas* canvas;
+    std::unique_ptr<Canvas> canvas;
 };
 
 #endif
